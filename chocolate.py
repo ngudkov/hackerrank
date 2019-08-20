@@ -29,22 +29,18 @@ def birthday(s, d, m):
 
 
 if __name__ == '__main__':
-    # fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-    # n = int(input().strip())
+    n = int(input().strip())
     #chocolate arrray
-    # s = list(map(int, input().rstrip().split()))
-    s = [2, 3, 4, 5, 7]
-    # dm = input().rstrip().split()
+    s = list(map(int, input().rstrip().split()))
+    dm = input().rstrip().split()
     #birthday day
-    # d = int(dm[0])
-    d = 5
-    m = 4
+    d = int(dm[0])
     #bithday month
-    # m = int(dm[1])
+    m = int(dm[1])
 
     result = birthday(s, d, m)
-    print(result)
-    # fptr.write(str(result) + '\n')
+    fptr.write(str(result) + '\n')
 
-    # fptr.close()
+    fptr.close()
