@@ -1,11 +1,11 @@
 #!/usr/bin/env python36
 
-from collections import OrderedDict, Counter
+from collections import OrderedDict
 
-wordsDict = OrderedDict()
+words_dict = OrderedDict()
 for i in range(int(input())):
     word = input()
-    wordsDict[word] = wordsDict.get(word, 0) + 1
+    words_dict[word] = words_dict.get(word, 0) + 1
 
-print(len(wordsDict))
-print(*wordsDict.values())
+print(len(words_dict))
+print(*words_dict.values())
