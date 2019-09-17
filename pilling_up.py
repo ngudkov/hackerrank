@@ -1,20 +1,20 @@
 #!/usr/bin/env python36
 from collections import deque
 
+
 # not very scary third iteration of algorithm
 def cube_pillar3(que):
-    lastInPillar = (max(que[0], que[-1]))
+    last_in_pillar = (max(que[0], que[-1]))
     while len(que) > 0:
         element = (max(que[0], que[-1]))
         if que[0] > que[-1]:
             que.popleft()
         else:
             que.pop()
-        if element > lastInPillar:
-            return('No')
+        if element > last_in_pillar:
+            return 'No'
     else:
         return 'Yes'
-    return 'Something went wrong'
 
 
 # scary second iteration of algorithm
@@ -46,7 +46,7 @@ def cube_pillar3(que):
 #             rightElement = que.pop()
 #         else:
 #             rightElement = False
-        
+
 #         if rightElement and rightElement >= leftElement:
 #             que.appendleft(leftElement)
 #             workingelement = rightElement
@@ -65,11 +65,13 @@ def cube_pillar3(que):
 #             return 'No'
 
 #     return 'Yes'
-        
+
 listsCount = int(input())
 for _ in range(listsCount):
     listLen = int(input())
-    cubesList = map (int, input().split())
+    cubesList = map(int, input().split())
+
     quene = deque()
     quene.extendleft(cubesList)
+
     print(cube_pillar3(quene))
