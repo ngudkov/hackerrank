@@ -1,38 +1,36 @@
 #!/bin/python3
 
-import math
+
 import os
-import random
-import re
-import sys
+
 
 # Complete the minimumSwaps function below.
-
-# my result in 2 cycles
-# def minimumSwaps(alist):
+# my result in 2 cycles, works normal
+# def minimum_swaps(a_list):
 #     swaps = 0
-#     for i in range(len(alist)):
-#         minIndex = i
-#         for k in range(i, len(alist)):
-#             if alist[k] < alist[minIndex]:
-#                 minIndex = k
-#         if minIndex != i:
-#             alist[i], alist[minIndex] = alist[minIndex], alist[i]
+#     len_a_list = len(a_list)
+#     for i in range(len_a_list):
+#         min_index = i
+#         for k in range(i, len_a_list):
+#             if a_list[k] < a_list[min_index]:
+#                 min_index = k
+#         if min_index != i:
+#             a_list[i], a_list[min_index] = a_list[min_index], a_list[i]
 #             swaps += 1
-#
+# 
 #     return swaps
 
 #  code stolen from comments with one cycle
-def minimumSwaps(arr):
+def minimum_swaps(arr):
     ref_arr = sorted(arr)
     index_dict = {v: i for i,v in enumerate(arr)}
     swaps = 0
 
-    for i,v in enumerate(arr):
+    for i, v in enumerate(arr):
         correct_value = ref_arr[i]
         if v != correct_value:
             to_swap_ix = index_dict[correct_value]
-            arr[to_swap_ix],arr[i] = arr[i], arr[to_swap_ix]
+            arr[to_swap_ix], arr[i] = arr[i], arr[to_swap_ix]
             index_dict[v] = to_swap_ix
             index_dict[correct_value] = i
             swaps += 1
@@ -44,11 +42,7 @@ if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
     n = int(input())
-
     arr = list(map(int, input().rstrip().split()))
 
-    res = minimumSwaps(arr)
-
-    fptr.write(str(res) + '\n')
-
+    fptr.write(str(minimum_swaps(arr)) + '\n')
     fptr.close()
