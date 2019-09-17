@@ -1,6 +1,7 @@
 #!/usr/bin/env python36
 
 from collections import OrderedDict, Counter
+
 wordsDict = OrderedDict()
 for i in range(int(input())):
     word = input()
