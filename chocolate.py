@@ -1,14 +1,10 @@
 #!/bin/env python36
 
-import math
 import os
-import random
-import re
-import sys
 
 # Complete the birthday function below.
 def birthday(s, d, m):
-    variantsArr= []
+    variants_arr = []
     # return 0 if montth is bigger than array length
     variants = 0
     if len(s) < m:
@@ -16,13 +12,13 @@ def birthday(s, d, m):
     # get all slices
     for i in range(len(s)):
         if (i - m + 1) >= 0:
-            tempArr = []
+            temp_arr = []
             for j in range(i - m + 1, i + 1):
-                tempArr.append(s[j])
-            variantsArr.append(tempArr)
+                temp_arr.append(s[j])
+            variants_arr.append(temp_arr)
 
     # calculate summ of bar numbers and eq it with birthday day
-    for variant in variantsArr:
+    for variant in variants_arr:
         if sum(variant) == d:
             variants += 1
     return variants
