@@ -1,32 +1,29 @@
 #!/bin/env python36
 
-import math
-import os
-import random
-import re
-import sys
 
-def insertionSort(alist):
+def insertion_sort(a_list):
     result = 0
-    for index in range(1, len(alist)):
-        currentvalue = alist[index]
+    for index in range(1, len(a_list)):
+        current_value = a_list[index]
         position = index
 
-        while position > 0 and alist[position - 1] > currentvalue:
-            result  += 1
-            alist[position] = alist[position - 1]
+        while position > 0 and a_list[position - 1] > current_value:
+            result += 1
+            a_list[position] = a_list[position - 1]
             position -= 1
-        alist[position] = currentvalue
+        a_list[position] = current_value
     return result
 
+
 # Complete the minimumBribes function below.
-def minimumBribes(q):
-    # check if the queue is too chaotic
+def minimum_bribes(q):
+
     for i in range(len(q)):
-        if  q[i] - (i + 1) > 2:
+        if q[i] - (i + 1) > 2:
             return "Too chaotic"
 
-    return insertionSort(q)
+    return insertion_sort(q)
+
 
 if __name__ == '__main__':
     t = int(input())
@@ -34,6 +31,6 @@ if __name__ == '__main__':
     for t_itr in range(t):
         n = int(input())
 
-        q = list(map(int, input().rstrip().split()))
+        queue = list(map(int, input().rstrip().split()))
 
-        print(minimumBribes(q))
+        print(minimum_bribes(queue))
