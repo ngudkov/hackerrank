@@ -1,44 +1,30 @@
 #!/bin/env python36
 
-import math
-import os
-import random
-import re
-import sys
 
 # Complete the diagonalDifference function below.
-def diagonalDifference(arr):
+def diagonal_difference(arr):
 
-    primaryDiagonalSumm = float(0)
-    secondaryDiagonalSumm = float(0)
-    arrLen = len(arr)
-    print(str(arrLen))
+    primary_diagonal_summ = 0.0
+    secondary_diagonal_summ = 0.0
+    arr_len = len(arr)
 
-    for i in range(arrLen):
-        for j in range(arrLen):
+    for i in range(arr_len):
+        for j in range(arr_len):
             if i == j:
-                print("adding to primary diagonal " + str(arr[i][j]))
-                primaryDiagonalSumm += arr[i][j]
-            if arrLen - 1 == i + j:
-                print("adding to SECONDARY diagonal " + str(arr[i][j]))
-                secondaryDiagonalSumm += arr[i][j]
+                primary_diagonal_summ += arr[i][j]
+            if arr_len - 1 == i + j:
+                secondary_diagonal_summ += arr[i][j]
 
-    return abs(primaryDiagonalSumm - secondaryDiagonalSumm)
+    return abs(primary_diagonal_summ - secondary_diagonal_summ)
 
 
 if __name__ == '__main__':
     # fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
     n = int(input())
-
     arr = []
-
     for _ in range(n):
         arr.append(list(map(int, input().rstrip().split())))
 
-    a = len(arr)
-    result = diagonalDifference(arr)
-    print(result)
-    # fptr.write(str(result) + '\n')
-
-    # fptr.close()
+    fptr.write(str(diagonal_difference(arr)) + '\n')
+    fptr.close()
